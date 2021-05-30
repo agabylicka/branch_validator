@@ -7,12 +7,20 @@ def validate_branch_name(name) -> bool:
     # check param name for falsy
     check_entered_param(name)
 
-    # TODO check, if name has wrong chars
+    # check, if name has illegal chars
+    check_invalid_chars(name)
 
     # TODO compare with known patterns
 
-# by default if invalid then is wrong
+    # by default if invalid then is wrong
     return False
+
+
+def check_invalid_chars(name):
+    illegals = [" ", ";", ",", ".", "\\"]
+    if any((i in illegals) for i in name):
+        sys.exit("space is un illegal character in branch name")
+    pass
 
 
 def check_entered_param(name):
@@ -28,6 +36,3 @@ if __name__ == '__main__':
         sys.exit(0)
     else:
         sys.exit(1)
-
-
-
