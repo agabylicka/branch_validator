@@ -22,7 +22,7 @@ class BranchValidatorTest(TestCase):
 
         # When
         with self.assertRaises(SystemExit) as custom_exception:
-            result = main.check_entered_param(test_object)
+            main.check_entered_param(test_object)
 
         # Then
         self.assertEqual(custom_exception.exception.code, expected_msg)
